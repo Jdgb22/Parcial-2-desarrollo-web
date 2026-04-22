@@ -3,45 +3,56 @@ interface Props {
   links?: { label: string; href: string }[];
 }
 
-const { links = [
-  { label: "Inicio", href: "#hero" },
-  { label: "Estudios", href: "#estudios" },
-  { label: "Proyectos", href: "#proyectos" },
-  { label: "Skills", href: "#skills" },
-  { label: "Intereses", href: "#intereses" },
-] } = Astro.props;
+const {
+  links = [
+    { label: "Inicio", href: "#hero" },
+    { label: "Estudios", href: "#estudios" },
+    { label: "Proyectos", href: "#proyectos" },
+    { label: "Skills", href: "#skills" },
+    { label: "Intereses", href: "#intereses" },
+  ],
+} = Astro.props;
 ---
 
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Logo / Name -->
     <a href="#hero" class="group flex items-center gap-2 no-underline">
-      <span class="w-8 h-8 rounded-full bg-gradient-to-br from-[#c8a96e] to-[#a8894e] flex items-center justify-center text-black font-bold text-sm font-mono">
+      <span
+        class="w-8 h-8 rounded-full bg-gradient-to-br from-[#c8a96e] to-[#a8894e] flex items-center justify-center text-black font-bold text-sm font-mono"
+      >
         JD
       </span>
-      <span class="text-white font-semibold text-sm tracking-wide group-hover:text-[#c8a96e] transition-colors duration-200">
+      <span
+        class="text-white font-semibold text-sm tracking-wide group-hover:text-[#c8a96e] transition-colors duration-200"
+      >
         Juan David
       </span>
     </a>
 
     <!-- Desktop links -->
     <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0">
-      {links.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            class="text-[#a0a0a0] hover:text-white text-sm font-medium tracking-wide transition-colors duration-200 relative group no-underline"
-          >
-            {link.label}
-            <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#c8a96e] transition-all duration-300 group-hover:w-full"></span>
-          </a>
-        </li>
-      ))}
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-[#a0a0a0] hover:text-white text-sm font-medium tracking-wide transition-colors duration-200 relative group no-underline"
+            >
+              {link.label}
+              <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#c8a96e] transition-all duration-300 group-hover:w-full" />
+            </a>
+          </li>
+        ))
+      }
     </ul>
 
     <!-- CTA button -->
     <a
-      href="mailto:juan@example.com"
+      href="mailto:tuemail@example.com"
       class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#c8a96e33] bg-[#c8a96e11] text-[#c8a96e] text-sm font-medium tracking-wide hover:bg-[#c8a96e22] hover:border-[#c8a96e77] transition-all duration-200 no-underline"
     >
       Contacto
@@ -53,28 +64,33 @@ const { links = [
       class="md:hidden flex flex-col gap-1.5 cursor-pointer p-1 bg-transparent border-none"
       aria-label="Toggle menu"
     >
-      <span class="w-5 h-[1.5px] bg-[#e0e0e0] block transition-all duration-300" id="line1"></span>
-      <span class="w-5 h-[1.5px] bg-[#e0e0e0] block transition-all duration-300" id="line2"></span>
-      <span class="w-4 h-[1.5px] bg-[#e0e0e0] block transition-all duration-300" id="line3"></span>
+      <span
+        class="w-5 h-[1.5px] bg-[#e0e0e0] block transition-all duration-300"
+        id="line1"></span>
+      <span
+        class="w-5 h-[1.5px] bg-[#e0e0e0] block transition-all duration-300"
+        id="line2"></span>
+      <span
+        class="w-4 h-[1.5px] bg-[#e0e0e0] block transition-all duration-300"
+        id="line3"></span>
     </button>
   </div>
 
   <!-- Mobile menu -->
-  <div
-    id="mobile-menu"
-    class="md:hidden hidden glass border-t border-white/5"
-  >
+  <div id="mobile-menu" class="md:hidden hidden glass border-t border-white/5">
     <ul class="flex flex-col px-6 py-4 gap-4 list-none m-0 p-5">
-      {links.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            class="text-[#c0c0c0] hover:text-white text-sm font-medium tracking-wide transition-colors duration-200 block no-underline mobile-link"
-          >
-            {link.label}
-          </a>
-        </li>
-      ))}
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-[#c0c0c0] hover:text-white text-sm font-medium tracking-wide transition-colors duration-200 block no-underline mobile-link"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
       <li class="pt-2 border-t border-white/5">
         <a
           href="mailto:juan@example.com"
@@ -88,55 +104,55 @@ const { links = [
 </nav>
 
 <script>
-  const navbar = document.getElementById('navbar') as HTMLElement;
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const line1 = document.getElementById('line1');
-  const line2 = document.getElementById('line2');
-  const line3 = document.getElementById('line3');
+  const navbar = document.getElementById("navbar") as HTMLElement;
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const line1 = document.getElementById("line1");
+  const line2 = document.getElementById("line2");
+  const line3 = document.getElementById("line3");
   let isOpen = false;
 
   // Scroll effect
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
-      navbar.style.background = 'rgba(10, 10, 10, 0.92)';
-      navbar.style.backdropFilter = 'blur(20px)';
-      navbar.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
+      navbar.style.background = "rgba(10, 10, 10, 0.92)";
+      navbar.style.backdropFilter = "blur(20px)";
+      navbar.style.borderBottom = "1px solid rgba(255,255,255,0.06)";
     } else {
-      navbar.style.background = 'transparent';
-      navbar.style.backdropFilter = 'none';
-      navbar.style.borderBottom = '1px solid transparent';
+      navbar.style.background = "transparent";
+      navbar.style.backdropFilter = "none";
+      navbar.style.borderBottom = "1px solid transparent";
     }
   });
 
   // Toggle mobile menu
-  menuBtn?.addEventListener('click', () => {
+  menuBtn?.addEventListener("click", () => {
     isOpen = !isOpen;
-    mobileMenu?.classList.toggle('hidden', !isOpen);
+    mobileMenu?.classList.toggle("hidden", !isOpen);
     if (line1 && line2 && line3) {
       if (isOpen) {
-        line1.style.transform = 'rotate(45deg) translate(4px, 4px)';
-        line2.style.opacity = '0';
-        line3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
-        line3.style.width = '20px';
+        line1.style.transform = "rotate(45deg) translate(4px, 4px)";
+        line2.style.opacity = "0";
+        line3.style.transform = "rotate(-45deg) translate(4px, -4px)";
+        line3.style.width = "20px";
       } else {
-        line1.style.transform = '';
-        line2.style.opacity = '1';
-        line3.style.transform = '';
-        line3.style.width = '16px';
+        line1.style.transform = "";
+        line2.style.opacity = "1";
+        line3.style.transform = "";
+        line3.style.width = "16px";
       }
     }
   });
 
   // Close on mobile link click
-  document.querySelectorAll('.mobile-link').forEach((link) => {
-    link.addEventListener('click', () => {
+  document.querySelectorAll(".mobile-link").forEach((link) => {
+    link.addEventListener("click", () => {
       isOpen = false;
-      mobileMenu?.classList.add('hidden');
+      mobileMenu?.classList.add("hidden");
       if (line1 && line2 && line3) {
-        line1.style.transform = '';
-        line2.style.opacity = '1';
-        line3.style.transform = '';
+        line1.style.transform = "";
+        line2.style.opacity = "1";
+        line3.style.transform = "";
       }
     });
   });
