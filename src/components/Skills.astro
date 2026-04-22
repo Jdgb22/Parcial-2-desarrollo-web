@@ -1,0 +1,105 @@
+---
+interface Lenguaje {
+  nombre: string;
+  nivel: number; // 1–5
+  icono: string;
+  categoria: "lenguaje" | "framework" | "herramienta" | "base-de-datos";
+}
+
+const lenguajes: Lenguaje[] = [
+  { nombre: "JavaScript", nivel: 4, icono: "JS", categoria: "lenguaje" },
+  { nombre: "TypeScript", nivel: 3, icono: "TS", categoria: "lenguaje" },
+  { nombre: "Python", nivel: 3, icono: "PY", categoria: "lenguaje" },
+  { nombre: "Java", nivel: 3, icono: "☕", categoria: "lenguaje" },
+  { nombre: "HTML & CSS", nivel: 5, icono: "🌐", categoria: "lenguaje" },
+  { nombre: "SQL", nivel: 4, icono: "DB", categoria: "lenguaje" },
+  { nombre: "C++", nivel: 2, icono: "C++", categoria: "lenguaje" },
+  { nombre: "React", nivel: 3, icono: "⚛", categoria: "framework" },
+  { nombre: "Astro", nivel: 3, icono: "🚀", categoria: "framework" },
+  { nombre: "Node.js", nivel: 3, icono: "N", categoria: "framework" },
+  { nombre: "Express", nivel: 3, icono: "Ex", categoria: "framework" },
+  { nombre: "Tailwind CSS", nivel: 4, icono: "TW", categoria: "framework" },
+  { nombre: "PostgreSQL", nivel: 4, icono: "PG", categoria: "base-de-datos" },
+  { nombre: "Supabase", nivel: 4, icono: "SB", categoria: "base-de-datos" },
+  { nombre: "Git & GitHub", nivel: 4, icono: "GH", categoria: "herramienta" },
+  { nombre: "VS Code", nivel: 5, icono: "⌨", categoria: "herramienta" },
+  { nombre: "Figma", nivel: 2, icono: "▲", categoria: "herramienta" },
+  { nombre: "Docker", nivel: 2, icono: "🐳", categoria: "herramienta" },
+];
+
+const categorias = ["lenguaje", "framework", "base-de-datos", "herramienta"] as const;
+const categoriasLabel: Record<(typeof categorias)[number], string> = {
+  lenguaje: "Lenguajes",
+  framework: "Frameworks & Libs",
+  "base-de-datos": "Bases de Datos",
+  herramienta: "Herramientas",
+};
+
+const nivelLabel = ["", "Básico", "Elemental", "Intermedio", "Avanzado", "Experto"];
+---
+
+<section id="skills" class="py-24 px-6 relative">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section header -->
+    <div class="section-fade mb-16">
+      <p class="text-xs font-mono font-medium tracking-[0.3em] text-[#c8a96e] uppercase mb-3">
+        04. Habilidades
+      </p>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight accent-line inline-block">
+        Stack Tecnológico
+      </h2>
+    </div>
+
+    <div class="space-y-12">
+      {categorias.map((cat) => {
+        const items = lenguajes.filter((l) => l.categoria === cat);
+        return (
+          <div class="section-fade">
+            <h3 class="text-xs font-mono font-medium tracking-[0.2em] text-[#505050] uppercase mb-6 flex items-center gap-3">
+              <span class="text-[#c8a96e]">—</span>
+              {categoriasLabel[cat]}
+              <span class="flex-1 h-px bg-white/5"></span>
+            </h3>
+
+            <div class="flex flex-wrap gap-3">
+              {items.map((lang) => (
+                <div
+                  class="group relative flex items-center gap-3 px-4 py-3 glass glass-hover rounded-xl cursor-default"
+                  title={`${lang.nombre} — ${nivelLabel[lang.nivel]}`}
+                >
+                  <!-- Icon -->
+                  <span class="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-xs font-mono font-bold text-[#c8a96e]">
+                    {lang.icono}
+                  </span>
+
+                  <!-- Name -->
+                  <div>
+                    <p class="text-sm font-medium text-[#d0d0d0] group-hover:text-white transition-colors duration-200 leading-none mb-1">
+                      {lang.nombre}
+                    </p>
+
+                    <!-- Level dots -->
+                    <div class="flex gap-1 items-center">
+                      {[1, 2, 3, 4, 5].map((dot) => (
+                        <div
+                          class={`w-1 h-1 rounded-full transition-colors duration-200 ${
+                            dot <= lang.nivel
+                              ? "bg-[#c8a96e]"
+                              : "bg-white/10"
+                          }`}
+                        ></div>
+                      ))}
+                      <span class="text-[10px] font-mono text-[#404040] ml-1">
+                        {nivelLabel[lang.nivel]}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

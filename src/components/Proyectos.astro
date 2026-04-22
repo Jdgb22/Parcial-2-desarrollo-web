@@ -1,0 +1,172 @@
+---
+interface Proyecto {
+  titulo: string;
+  descripcion: string;
+  tecnologias: string[];
+  tipo: string;
+  destacado?: boolean;
+  enlaceDemo?: string;
+  enlaceCodigo?: string;
+}
+
+const proyectos: Proyecto[] = [
+  {
+    titulo: "Sistema de Inventario Multi-Tenant",
+    descripcion: "Plataforma web para gestión de inventario con soporte multi-empresa. Implementa Row-Level Security en Supabase, autenticación por roles y dashboard en tiempo real.",
+    tecnologias: ["React", "Supabase", "PostgreSQL", "RLS", "Vercel"],
+    tipo: "Aplicación Web",
+    destacado: true,
+    enlaceCodigo: "#",
+  },
+  {
+    titulo: "Portal de Nómina y Personal",
+    descripcion: "Módulo administrativo integrado para gestión de empleados y liquidación de nómina. Incluye cálculo automático de prestaciones sociales (prima, cesantías, liquidación).",
+    tecnologias: ["JavaScript", "HTML/CSS", "Supabase", "REST API"],
+    tipo: "Dashboard",
+    destacado: true,
+    enlaceCodigo: "#",
+  },
+  {
+    titulo: "Portafolio Personal",
+    descripcion: "Este mismo portafolio profesional. Construido con Astro y Tailwind CSS, con diseño minimalista, animaciones fluidas y completamente responsive.",
+    tecnologias: ["Astro", "Tailwind CSS", "TypeScript"],
+    tipo: "Frontend",
+    enlaceCodigo: "#",
+    enlaceDemo: "#",
+  },
+  {
+    titulo: "CLI de Automatización",
+    descripcion: "Herramienta de línea de comandos para automatizar tareas repetitivas de desarrollo: generación de componentes, scripts de base de datos y despliegue.",
+    tecnologias: ["Python", "Bash", "Git"],
+    tipo: "Herramienta",
+    enlaceCodigo: "#",
+  },
+  {
+    titulo: "API REST — Gestión Académica",
+    descripcion: "Backend RESTful para sistema de gestión académica universitaria. Soporta autenticación JWT, CRUD de materias, estudiantes y calificaciones.",
+    tecnologias: ["Node.js", "Express", "PostgreSQL", "JWT"],
+    tipo: "Backend",
+    destacado: false,
+    enlaceCodigo: "#",
+  },
+  {
+    titulo: "App de Estadísticas Deportivas",
+    descripcion: "Dashboard interactivo que consume una API pública de estadísticas deportivas, mostrando datos en tiempo real con gráficas dinámicas.",
+    tecnologias: ["JavaScript", "Chart.js", "Fetch API", "CSS Grid"],
+    tipo: "Frontend",
+    enlaceCodigo: "#",
+  },
+];
+---
+
+<section id="proyectos" class="py-24 px-6 relative">
+  <!-- Subtle top border -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent to-[#c8a96e44]"></div>
+
+  <div class="max-w-6xl mx-auto">
+    <!-- Section header -->
+    <div class="section-fade mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+      <div>
+        <p class="text-xs font-mono font-medium tracking-[0.3em] text-[#c8a96e] uppercase mb-3">
+          03. Experiencia
+        </p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight accent-line inline-block">
+          Proyectos
+        </h2>
+      </div>
+      <p class="text-[#606060] text-sm max-w-xs text-right">
+        Proyectos destacados de mi trayectoria como desarrollador.
+      </p>
+    </div>
+
+    <!-- Featured projects (first 2) -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      {proyectos
+        .filter((p) => p.destacado)
+        .map((proyecto) => (
+          <article class="section-fade glass glass-hover rounded-2xl p-7 flex flex-col gap-4 group relative overflow-hidden">
+            <!-- Corner accent -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_top_right,rgba(200,169,110,0.06),transparent_70%)]"></div>
+
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <span class="tag mb-3 block w-fit">{proyecto.tipo}</span>
+                <h3 class="text-xl font-bold text-white group-hover:text-[#c8a96e] transition-colors duration-200">
+                  {proyecto.titulo}
+                </h3>
+              </div>
+              <div class="flex gap-3 shrink-0 mt-1">
+                {proyecto.enlaceDemo && (
+                  <a
+                    href={proyecto.enlaceDemo}
+                    class="text-[#606060] hover:text-[#c8a96e] transition-colors no-underline text-xs font-mono"
+                    title="Ver demo"
+                  >
+                    ↗ Demo
+                  </a>
+                )}
+                {proyecto.enlaceCodigo && (
+                  <a
+                    href={proyecto.enlaceCodigo}
+                    class="text-[#606060] hover:text-[#c8a96e] transition-colors no-underline text-xs font-mono"
+                    title="Ver código"
+                  >
+                    &lt;/&gt; Código
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <p class="text-[#808080] text-sm leading-relaxed flex-1">
+              {proyecto.descripcion}
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+              {proyecto.tecnologias.map((tech) => (
+                <span class="text-xs font-mono text-[#606060] px-2 py-1 rounded bg-white/3 border border-white/5">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+    </div>
+
+    <!-- Other projects grid (remaining) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {proyectos
+        .filter((p) => !p.destacado)
+        .map((proyecto) => (
+          <article class="section-fade glass glass-hover rounded-xl p-6 flex flex-col gap-3 group relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="tag">{proyecto.tipo}</span>
+              <div class="flex gap-2">
+                {proyecto.enlaceDemo && (
+                  <a href={proyecto.enlaceDemo} class="text-[#505050] hover:text-[#c8a96e] transition-colors no-underline text-xs" title="Demo">↗</a>
+                )}
+                {proyecto.enlaceCodigo && (
+                  <a href={proyecto.enlaceCodigo} class="text-[#505050] hover:text-[#c8a96e] transition-colors no-underline text-xs" title="Código">&lt;/&gt;</a>
+                )}
+              </div>
+            </div>
+
+            <h3 class="text-base font-bold text-white group-hover:text-[#c8a96e] transition-colors duration-200">
+              {proyecto.titulo}
+            </h3>
+
+            <p class="text-[#606060] text-xs leading-relaxed flex-1">
+              {proyecto.descripcion}
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
+              {proyecto.tecnologias.map((tech) => (
+                <span class="text-[10px] font-mono text-[#505050] px-1.5 py-0.5 rounded bg-white/3 border border-white/5">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+    </div>
+  </div>
+</section>

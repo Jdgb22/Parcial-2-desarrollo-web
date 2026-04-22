@@ -1,0 +1,62 @@
+---
+---
+
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background grid -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+
+  <!-- Radial gradient glow -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(200,169,110,0.08)_0%,transparent_70%)]"></div>
+
+  <!-- Floating orbs -->
+  <div class="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-[#c8a96e08] blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#ffffff04] blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 py-32 text-center">
+    <!-- Status badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 text-xs text-[#a0a0a0] font-mono tracking-widest mb-10 uppercase">
+      <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+      Disponible para oportunidades
+    </div>
+
+    <!-- Name -->
+    <h1 class="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-none mb-6 font-sans">
+      <span class="gradient-text">Juan David</span>
+      <br />
+      <span class="text-white/90">García López</span>
+    </h1>
+
+    <!-- Role -->
+    <p class="text-lg sm:text-xl text-[#808080] font-mono font-medium mb-4 tracking-wide">
+      &lt; Desarrollador de Software &amp; Estudiante de Ingeniería /&gt;
+    </p>
+
+    <!-- Description -->
+    <p class="max-w-2xl mx-auto text-base sm:text-lg text-[#606060] leading-relaxed mb-12">
+      Apasionado por construir soluciones digitales elegantes y eficientes. 
+      Combino creatividad y lógica para transformar ideas en experiencias que impactan.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href="#proyectos"
+        class="px-8 py-3.5 bg-[#c8a96e] text-black font-semibold text-sm tracking-wide rounded-full hover:bg-[#dfc08a] transition-all duration-200 hover:shadow-[0_0_30px_rgba(200,169,110,0.3)] no-underline"
+      >
+        Ver Proyectos
+      </a>
+      <a
+        href="#estudios"
+        class="px-8 py-3.5 glass border border-white/10 text-white font-medium text-sm tracking-wide rounded-full hover:border-[#c8a96e44] hover:text-[#c8a96e] transition-all duration-200 no-underline"
+      >
+        Mi Trayectoria
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+      <span class="text-xs font-mono tracking-widest uppercase text-[#606060]">scroll</span>
+      <div class="w-[1px] h-10 bg-gradient-to-b from-[#c8a96e] to-transparent animate-bounce"></div>
+    </div>
+  </div>
+</section>

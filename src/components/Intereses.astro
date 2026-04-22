@@ -1,0 +1,104 @@
+---
+interface Area {
+  titulo: string;
+  descripcion: string;
+  icono: string;
+  etiquetas: string[];
+}
+
+const areas: Area[] = [
+  {
+    titulo: "Desarrollo Web",
+    descripcion: "Diseño y construcción de aplicaciones web modernas, tanto en el frontend como en el backend. Me apasiona crear interfaces fluidas y APIs robustas.",
+    icono: "◎",
+    etiquetas: ["Frontend", "Backend", "APIs REST", "UI/UX"],
+  },
+  {
+    titulo: "Ingeniería de Software",
+    descripcion: "Estudio y aplicación de buenas prácticas: arquitecturas limpias, patrones de diseño, testing y mantenimiento de código escalable a largo plazo.",
+    icono: "⬡",
+    etiquetas: ["Clean Code", "Design Patterns", "Testing", "Arquitectura"],
+  },
+  {
+    titulo: "Bases de Datos",
+    descripcion: "Modelado, optimización y gestión de bases de datos relacionales. Especial interés en seguridad a nivel de fila (RLS) y arquitecturas multi-tenant.",
+    icono: "◈",
+    etiquetas: ["SQL", "PostgreSQL", "Supabase", "Multi-tenant"],
+  },
+  {
+    titulo: "Cloud & DevOps",
+    descripcion: "Exploración de servicios en la nube para despliegue, escalabilidad y automatización de infraestructura. En continuo aprendizaje.",
+    icono: "⬟",
+    etiquetas: ["AWS", "Vercel", "CI/CD", "Docker"],
+  },
+  {
+    titulo: "Seguridad Informática",
+    descripcion: "Interés creciente en ciberseguridad, autenticación, autorización y protección de datos. Fundamentos de criptografía y control de acceso.",
+    icono: "◆",
+    etiquetas: ["Auth", "JWT", "RLS", "Criptografía"],
+  },
+  {
+    titulo: "Automatización & Scripting",
+    descripcion: "Desarrollo de herramientas y scripts para optimizar flujos de trabajo. Automatización de tareas repetitivas de desarrollo y administración de sistemas.",
+    icono: "◐",
+    etiquetas: ["Python", "Bash", "CLI", "Automatización"],
+  },
+];
+---
+
+<section id="intereses" class="py-24 px-6 relative">
+  <!-- Subtle divider -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c8a96e22] to-transparent"></div>
+
+  <div class="max-w-6xl mx-auto">
+    <!-- Section header -->
+    <div class="section-fade mb-16">
+      <p class="text-xs font-mono font-medium tracking-[0.3em] text-[#c8a96e] uppercase mb-3">
+        05. Intereses
+      </p>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight accent-line inline-block">
+        Áreas de Interés
+      </h2>
+      <p class="text-[#606060] text-sm mt-6 max-w-xl">
+        Campos que me apasionan y en los que busco crecer profesionalmente.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {areas.map((area, i) => (
+        <article
+          class="section-fade glass glass-hover rounded-2xl p-7 cursor-default group relative overflow-hidden"
+          style={`transition-delay: ${i * 80}ms`}
+        >
+          <!-- Glow on hover -->
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(200,169,110,0.04),transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+          <!-- Icon -->
+          <div class="text-4xl text-[#c8a96e] font-mono mb-5 opacity-70 group-hover:opacity-100 transition-opacity duration-200">
+            {area.icono}
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-lg font-bold text-white mb-3 group-hover:text-[#c8a96e] transition-colors duration-200">
+            {area.titulo}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-[#606060] text-sm leading-relaxed mb-5">
+            {area.descripcion}
+          </p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2">
+            {area.etiquetas.map((tag) => (
+              <span class="tag text-[10px] px-2 py-1">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
